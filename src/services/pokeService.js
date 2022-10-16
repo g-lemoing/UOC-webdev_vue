@@ -43,15 +43,14 @@ const apiService = {
     getPokeInfoArray(pokeIdArray){
         const resultArray = []
         console.log(pokeIdArray)
-        Promise.all(pokeIdArray.map((endpoint) => axios.get(endpoint)))
-        .then(response => {
-            let tempResults = response
-            console.log(tempResults)
-            tempResults.forEach(e => resultArray.push(destructurePokemon(e)));
-            console.log(resultArray)
-            return resultArray
-    })
-        .catch(error => console.log(error))
+        pokeIdArray.forEach(endpoint => {
+            pokeAPI.get(endpoint)
+            .then(response => {
+                resultArray.push(destructurePokemon(response))
+            })
+            .catch(error => console.log(error))
+        });
+        return resultArray
     },
 }
 
