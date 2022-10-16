@@ -5,23 +5,10 @@ import { services } from "@/hooks/usePokeService.js"
 
 defineProps({
   pokemons: {
-    type: Array,
+    type: Object,
     required: true,
   },
 })
-
-  // const totalPokemons = ref(0)
-  const pokemon = ref({})
-  // const pokemons = ref([])
-
-  // const fetchData = async function fetchData(){
-  //   totalPokemons.value = await services.getCountPokemons()
-  //   pokemon.value = await services.getPokemon(1)
-  //   pokemons.value.push(pokemon.value)
-  //   console.log(totalPokemons.value)
-  //   console.log(pokemon.value)
-  // }
-// onMounted(() => fetchData())
 
 </script>
 
@@ -44,6 +31,7 @@ defineProps({
 </template>
 
 <style lang="css" scope>
+
 .cards-grid {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
@@ -52,4 +40,5 @@ defineProps({
   gap: 2vh 2vw;
   perspective: 600px;
 }
+
 </style>
