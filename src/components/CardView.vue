@@ -37,17 +37,16 @@ defineProps({
   <div class="card">
     <div class="img-container">
       <img :src="img" :alt="name">
-      <!-- {{props.img}} -->
-      <a href="#"><img class="icon" src="@/assets/logos/info-icon.svg" href="#" alt="Veure detall Pokemon" height="48" width="48"></a>
+      <a href="#"><img class="icon" src="@/assets/logos/info-icon.svg" href="#" alt="Veure detall Pokemon"></a>
     </div>
     <h2>{{name}}</h2>
     <div class = "img-container">
       <div class="types-container">
-        <img class="icon" src="@/assets/logos/atac.svg" href="#" alt="Icon Atac" height="48" width="48">
+        <img class="icon" src="@/assets/logos/atac.svg" href="#" alt="Icon Atac">
         <p>{{attack}}</p>
       </div>
       <div class="types-container">
-        <img class="icon" src="@/assets/logos/defensa.svg" href="#" alt="Icon Defensa" height="48" width="48">
+        <img class="icon" src="@/assets/logos/defensa.svg" href="#" alt="Icon Defensa">
         <p>{{defense}}</p>
       </div>
     </div>
@@ -110,6 +109,11 @@ defineProps({
     align-items: center;
     width: 100%;
     gap: 10%;
+  }
+
+  .icon{
+    width: 48px;
+    height: 48px;
   }
 
   .types-container > p{
