@@ -24,16 +24,6 @@ const apiService = {
     getPokeInfo(id){
         return pokeAPI.get(`/pokemon/${id}`)
         .then(response => {
-            // let pokemon = {
-            //     "id": response.data.id,
-            //     "name": response.data.name,
-            //     "img": response.data.sprites.front_default,
-            //     "img_back": response.data.sprites.back_default,
-            //     "attack": response.data.stats[1].base_stat,
-            //     "defense": response.data.stats[2].base_stat,
-            //     "types": response.data.types
-            // }
-            // return pokemon
             return destructurePokemon(response)
         })
         .catch(console => console.log(error))
@@ -41,16 +31,11 @@ const apiService = {
 
     // Get Pokemon detailed info array
     getPokeInfoArray(pokeIdArray){
-        const resultArray = []
-        console.log(pokeIdArray)
-        pokeIdArray.forEach(endpoint => {
-            pokeAPI.get(endpoint)
-            .then(response => {
-                resultArray.push(destructurePokemon(response))
+        return Promise.all(pokeIdArray.map((endpoint) => axios.get(endpoint))).then(
+            axios.spread((...allData) => {
+                return allData.map((pokemon) => destructurePokemon(pokemon))
             })
-            .catch(error => console.log(error))
-        });
-        return resultArray
+        )
     },
 }
 
