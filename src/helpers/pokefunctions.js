@@ -63,10 +63,15 @@ const destructurePokemon = (e) => {
     return pokemonObj
 }
 
+// Set first letter of string to uppercase
+function setToUpperCase (str) {
+    return str.charAt(0).toUpperCase() + str.slice(1)
+}
+
 // Winner of the fight between two pokemons
 const card1Wins = (card1, card2) => {
     let win = parseInt(card1.attack) > parseInt(card2.defense) ? ' guanya a ' : ' perd contra '
-    return card1.name + ' ataca i ' + win + card2.name
+    return setToUpperCase(card1.name) + ' ataca i' + win + setToUpperCase(card2.name)
 }
 
 // Check theme
