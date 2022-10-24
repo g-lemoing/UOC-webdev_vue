@@ -8,13 +8,10 @@ defineProps({
 }
 )
 
-const tipus = `${typename}`
-const iconref = `assets/tipus/${typename}.png`
-
 </script>
 
 <template>
-    <img class="icon" src=iconref alt=tipus>
+    <p>{{typename}}</p>
 </template>
 
 <style scoped>
