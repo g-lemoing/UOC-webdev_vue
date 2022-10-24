@@ -20,7 +20,7 @@
   }
 
 const foundPokemons = computed(
-  () => arrayPokemons.value.filter(({pokemon}) => pokemon.name.toLowerCase().includes(searchedText.value.toLowerCase()))
+  () => arrayPokemons.value.filter((pokemon) => pokemon.name.toLowerCase().includes(searchedText.value.toLowerCase()))
 )
 
 onMounted(async() => {
@@ -34,18 +34,31 @@ onMounted(async() => {
     fetchData()
     console.log (foundPokemons.value)
   }
+    localStorage.setItem("lockPokemons", false)
   })
 </script>
 
 <template>
   <main>
-    <form @submit.prevent="handleSubmit">
+    <form class="box-center" @submit.prevent="handleSubmit">
       <label for="searchText">Cerqueu un pokemon pel seu nom </label>
       <input type="text" v-model="searchedText">
       {{searchedText}}
     </form>
-    <ListView :pokemons = "arrayPokemons" />
+    <ListView :pokemons = "foundPokemons" :fight = false />
   </main>
 </template>
 
-<style scoped></style>
+<style scoped>
+  .box-center{
+    display: flex;
+    justify-content: center;
+    vertical-align: middle;
+    padding: 1rem;
+    gap: 5vw;
+    width: 100vw;
+    background-color: var(--background-nav);
+    color: var(--text-color);
+  }
+
+</style>
