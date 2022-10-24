@@ -16,9 +16,9 @@ const router = createRouter({
       component: FightView
     },
     {
-      path: '/detail/:id',
+      path: '/detail/:pokeId',
       name: 'detail',
-      component: () => import('@/views/DetailView.vue')
+      component: () => import('@/components/CardDetailView.vue')
     }
   ]
 })
