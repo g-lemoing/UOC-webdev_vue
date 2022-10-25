@@ -172,13 +172,14 @@ function addIsFlipped(pokeId) {
 .icon {
   width: 48px;
   height: 48px;
+  filter: invert(var(--invert-percent));
 }
 
-.icon.light {
+/* .icon.light {
   filter: invert(0%);
 }
 
 .icon.dark {
   filter: invert(100%);
-}
+} */
 </style>

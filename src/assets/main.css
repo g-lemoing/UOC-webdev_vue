@@ -27,25 +27,9 @@ a {
 h1{
     text-align: center;
 }
-nav {
-    display: flex;
-    background-color: var(--background-nav);
-    padding: 0vh 2vw;
-    gap: 1rem;
-    align-items: center;
-    vertical-align: middle;
-}
-
-nav>form>input {
-    margin: 0rem .1rem 0rem .5rem;
-}
 
 ul {
     list-style: none;
 }
 
 /* ----------- Classes -------------- */
-.flex-vert{
-  display: flex;
-  flex-direction: column;
-}

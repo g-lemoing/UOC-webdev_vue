@@ -6,39 +6,34 @@ import maincss from "@/assets/main.css"
 
 const theme = ref("dark")
 
-function switchTheme (theme){
-  localStorage.setItem("customTheme", theme.value)
-  let icons = document.querySelectorAll(".icon")
-  let iconsArray = Array.from(icons)
-  console.log(icons)
-  console.log(theme)
-  switch (theme.value){
-    case "light":
-      icons.forEach(icon => {
-        icon.classList.remove("dark")
-        icon.classList.add("light")
-      })
-      break;
+// function switchTheme (theme){
+//   localStorage.setItem("customTheme", theme.value)
+//   let icons = document.getElementsByClassName("icon")
+//   console.log(icons)
+//   let iconsArray = Array.from(icons)
+//   console.log(iconsArray)
+//   console.log(theme)
+//   switch (theme.value){
+//     case "light":
+//       icons.forEach(icon => {
+//         icon.classList.remove("dark")
+//         icon.classList.add("light")
+//       })
+//       break;
 
-    case "dark":
-      icons.forEach(icon => {
-        icon.classList.remove("light")
-        icon.classList.add("dark")
-      })
-        break
-
-    default:
-      icons.forEach(icon => {
-        icon.classList.remove("light")
-        icon.classList.add("dark")
-      })
-  }
-}
+//     case "dark":
+//     default:
+//       icons.forEach(icon => {
+//         icon.classList.remove("light")
+//         icon.classList.add("dark")
+//       })
+//   }
+// }
 
 onMounted(() => {
   console.log ("switching theme")
   console.log(theme.value)
-  switchTheme(theme.value)
+  // switchTheme(theme.value)
 })
 
 </script>
@@ -90,7 +85,7 @@ onMounted(() => {
   --background-nav: var(--strong-beige);
   --vora-text: 2px 0 #fff, -2px 0 #fff, 0 2px #fff, 0 -2px #fff,
       1px 1px #fff, -1px -1px #fff, 1px -1px #fff, -1px 1px #fff;
-
+  --invert-percent: 0;
 }
 
 .themed.dark {
@@ -100,6 +95,7 @@ onMounted(() => {
   --background-nav: var(--lightgrey);
   --vora-text: 2px 0 #000, -2px 0 #000, 0 2px #000, 0 -2px #000,
       1px 1px #000, -1px -1px #000, 1px -1px #000, -1px 1px #000;
+  --invert-percent: 1;
 }
 
 header {
@@ -111,14 +107,14 @@ header {
 
 .logo {
   display: block;
-  margin: 0 auto 2rem;
+  margin: .5rem auto ;
 }
 
 nav {
   display: flex;
   justify-content: space-between;
   width: 100%;
-  font-size: 12px;
+  font-size: 1.5rem;
   text-align: center;
   color: var(--text-color);
   background-color: var(--background-nav);
@@ -137,6 +133,7 @@ nav a {
   display: inline-block;
   padding: 0 1rem;
   border-left: 1px solid var(--color-border);
+  text-decoration: none;
 }
 
 nav a:first-of-type {
@@ -160,23 +157,17 @@ nav a:first-of-type {
     padding-right: calc(var(--section-gap) / 2);
   }
 
-  .logo {
-    margin: 0 2rem 0 0;
-  }
-
-  header .wrapper {
-    display: flex;
-    place-items: flex-start;
-    flex-wrap: wrap;
-  }
-
   nav {
     text-align: left;
     margin-left: -1rem;
-    font-size: 1rem;
-
     padding: 1rem 0;
     margin-top: 1rem;
+  }
+}
+
+@media only screen and (max-width: 680px) {
+  nav {
+    font-size: 1rem;
   }
 }
 </style>

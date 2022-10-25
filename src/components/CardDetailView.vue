@@ -123,6 +123,11 @@ onMounted(() => {
   font-size: 2rem;
   width: 100%;
 }
+
+.card-footer > a:hover{
+  background-color: var(--bg-color);
+}
+
 .img-container {
   display: flex;
   flex-direction: row;
@@ -135,16 +140,17 @@ onMounted(() => {
 .icon {
   width: 48px;
   height: 48px;
+  filter: invert(var(--filter-percent))
 }
 
-.icon.light {
+/* .icon.light {
   filter: invert(0%);
 }
 
 .icon.dark {
   filter: invert(100%);
-}
+} */
 .types-container > p {
-  font-size: 2rem;
+  font-size: 1.5rem;
 }
 </style>

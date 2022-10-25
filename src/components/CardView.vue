@@ -119,15 +119,16 @@ defineProps({
 .icon {
   width: 48px;
   height: 48px;
+  filter: invert(var(--invert-percent))
 }
 
-.icon.light {
+/* .icon.light {
   filter: invert(100%);
 }
 
 .icon.dark {
   filter: invert(0%);
-}
+} */
 
 .types-container > p {
   font-size: 2rem;
