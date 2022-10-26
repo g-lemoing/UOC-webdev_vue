@@ -6,7 +6,6 @@ const BASE_URL = "https://pokeapi.co/api/v2"
 const totalPokemons = async () =>{
     if (getLocalStorage("maxPokemons") === []){
       const res = await services.getCountPokemons()
-      console.log(`pokefunction ${res}`)
       setLocalStorage("maxPokemons", res)
       return res
     }

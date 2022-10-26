@@ -23,7 +23,6 @@ const fetchData = async function fetchData() {
   const nrPokemons = await services.getCountPokemons();
   const arrayIdPokemons = pokeIdArray(CARDS, nrPokemons);
   arrayPokemons.value = await services.getPokemons(arrayIdPokemons);
-  console.log(arrayPokemons.value);
 };
 
 // Reception of message emitted by ListView
@@ -33,7 +32,6 @@ const showMessageWins = (msg) =>{
 }
 
 onMounted(async () => {
-  console.log("Carregant noves dades");
   fetchData();
 });
 </script>

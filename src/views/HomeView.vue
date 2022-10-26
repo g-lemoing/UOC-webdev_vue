@@ -16,7 +16,6 @@
     arrayPokemons.value = await services.getPokemons(arrayIdPokemons)
     setLocalStorage("arrayIdPokemons", arrayIdPokemons)
     setLocalStorage("arrayPokemons", arrayPokemons.value)
-    console.log(arrayPokemons.value)
   }
 
 const foundPokemons = computed(
@@ -30,9 +29,7 @@ onMounted(async() => {
     arrayPokemons.value = getLocalStorage("arrayPokemons")
   } else{
     // Request new 10 pokemons set
-    console.log ("Carregant noves dades")
     fetchData()
-    console.log (foundPokemons.value)
   }
     localStorage.setItem("lockPokemons", false)
   })
@@ -43,7 +40,6 @@ onMounted(async() => {
     <form class="box-center" @submit.prevent="handleSubmit">
       <label for="searchText">Cerqueu un pokemon pel seu nom </label>
       <input type="text" v-model="searchedText">
-      {{searchedText}}
     </form>
     <ListView :pokemons = "foundPokemons" :fight = false />
   </main>

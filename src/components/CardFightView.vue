@@ -34,9 +34,7 @@ defineProps({
 });
 
 function addIsFlipped(pokeId) {
-  console.log(pokeId);
   let card = document.getElementById(pokeId);
-  console.log(card);
   card.classList.add("is-flipped");
 }
 </script>

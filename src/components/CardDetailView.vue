@@ -13,10 +13,6 @@ setLocalStorage("currentPokemon", pokemon);
 
 localStorage.setItem("lockPokemons", true);
 
-onMounted(() => {
-  console.log(pokeId);
-  console.log(pokemon);
-});
 </script>
 
 <template>
