@@ -74,16 +74,5 @@ const card1Wins = (card1, card2) => {
     return setToUpperCase(card1.name) + ' ataca i' + win + setToUpperCase(card2.name)
 }
 
-// Check theme
-const checkTheme = () => {
-    let theme = localStorage.getItem('customTheme')
-    // console.log(theme);
-    if (theme == null || theme == '') {
-        theme = 'light'
-    }
-    document.getElementById(theme).checked = true
-    return theme
-}
-
-export {setLocalStorage, getLocalStorage, totalPokemons, pokeIdArray, pokemonsArray, destructurePokemon, card1Wins, checkTheme}
+export {setLocalStorage, getLocalStorage, totalPokemons, pokeIdArray, pokemonsArray, destructurePokemon, card1Wins}
 
