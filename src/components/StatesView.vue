@@ -1,22 +1,23 @@
 <script setup>
-
 defineProps({
-  typename:{
+  typename: {
     type: String,
     required: true,
   },
-}
-)
-
+});
 </script>
 
 <template>
-    <p>{{typename}}</p>
+  <p>{{ typename }}</p>
 </template>
 
 <style scoped>
-  .icon{
-    width: 96px;
-    height: 96px;
-  }
+p {
+  font-size: 1.5rem;
+}
+
+.icon {
+  width: 96px;
+  height: 96px;
+}
 </style>

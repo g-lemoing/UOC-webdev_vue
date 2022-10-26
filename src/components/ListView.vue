@@ -77,5 +77,26 @@ function addToFight(pokemon) {
   padding: 2vh 2vw;
   gap: 2vh 2vw;
   perspective: 600px;
+  background-color: var(--bg-color);
+}
+
+/* Responsive ----------------- Media queries --------------------*/
+
+@media only screen and (max-width: 1100px) {
+  .cards-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+@media only screen and (max-width: 900px) {
+  .cards-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media only screen and (max-width: 680px) {
+  .cards-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 </style>

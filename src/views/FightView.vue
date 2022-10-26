@@ -55,6 +55,7 @@ onMounted(async () => {
 h2{
     color: var(--text-color)
 }
+
 .center-block {
   font-size: 2rem;
   height: auto;
@@ -65,12 +66,29 @@ h2{
 }
 
 .reload-btn {
+  font-family: inherit;
   font-size: 2rem;
-  height: 3rem;
+  height: auto;
   padding: 0.5rem;
   background-color: var(--bg-color);
   color: var(--text-color);
   text-align: center;
+  vertical-align: middle;
   cursor: pointer;
+  border-radius: 4px;
+}
+
+/* --------- Responsive styles ----------------- */
+
+@media only screen and (max-width: 1000px) {
+  .reload-btn, h2 {
+    font-size: 1.5rem;
+  }
+}
+
+@media only screen and (max-width: 680px) {
+  .reload-btn, h2 {
+    font-size: 1rem;
+  }
 }
 </style>

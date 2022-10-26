@@ -10,29 +10,8 @@
   --strong-beige: rgb(218, 218, 158);
   --lightyellow: lightyellow;
   --darkgrey: #3d3d3d;
-  --lightgrey: #4d4d4d;
-  --yellow: yellow;
+  --lightgrey: #686868;
+  --yellow: rgb(245, 245, 100);
   --text-default: #4e4e4e;
   --card_border: #17301b;
-}
-
-/* Define dark and light themes attributes */
-
-[data-theme="light"] {
-  --bg-color: var(--beige);
-  --text-color: var(--darkgrey);
-  --card-bg-color: var(--strong-beige);
-  --background-nav: var(--strong-beige);
-  --vora-text: 2px 0 #fff, -2px 0 #fff, 0 2px #fff, 0 -2px #fff,
-      1px 1px #fff, -1px -1px #fff, 1px -1px #fff, -1px 1px #fff;
-
-}
-
-[data-theme="dark"] {
-  --bg-color: var(--darkgrey);
-  --text-color: var(--yellow);
-  --card-bg-color: var(--lightgrey);
-  --background-nav: var(--lightgrey);
-  --vora-text: 2px 0 #000, -2px 0 #000, 0 2px #000, 0 -2px #000,
-      1px 1px #000, -1px -1px #000, 1px -1px #000, -1px 1px #000;
 }

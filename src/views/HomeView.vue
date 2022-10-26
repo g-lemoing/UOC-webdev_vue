@@ -61,4 +61,15 @@ onMounted(async() => {
     color: var(--text-color);
   }
 
+  label{
+    font-size: 1.5rem;
+  }
+
+  /* ------------- Responsive styles ------------------ */
+
+  @media only screen and (max-width: 680px) {
+    label {
+      font-size: 1rem;
+    }
+}
 </style>
