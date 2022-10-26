@@ -1,60 +1,53 @@
 <script setup>
-import { ref, onMounted } from 'vue'
-import { RouterLink, RouterView } from 'vue-router'
-import basecss from "@/assets/base.css"
-import maincss from "@/assets/main.css"
+import { ref, onMounted } from "vue";
+import { RouterLink, RouterView } from "vue-router";
+import basecss from "@/assets/base.css";
+import maincss from "@/assets/main.css";
+import { getLocalStorage, setLocalStorage } from "@/helpers/pokefunctions.js";
 
-const theme = ref("dark")
+// Initialize theme: default theme in local storage else dark
+const theme =
+  getLocalStorage("customTheme").length != 0
+    ? ref(getLocalStorage("customTheme"))
+    : ref("dark");
 
-// function switchTheme (theme){
-//   localStorage.setItem("customTheme", theme.value)
-//   let icons = document.getElementsByClassName("icon")
-//   console.log(icons)
-//   let iconsArray = Array.from(icons)
-//   console.log(iconsArray)
-//   console.log(theme)
-//   switch (theme.value){
-//     case "light":
-//       icons.forEach(icon => {
-//         icon.classList.remove("dark")
-//         icon.classList.add("light")
-//       })
-//       break;
-
-//     case "dark":
-//     default:
-//       icons.forEach(icon => {
-//         icon.classList.remove("light")
-//         icon.classList.add("dark")
-//       })
-//   }
-// }
-
-onMounted(() => {
-  console.log ("switching theme")
-  console.log(theme.value)
-  // switchTheme(theme.value)
-})
-
+// Store theme in local storage when it changes
+const saveTheme = (theme) => setLocalStorage("customTheme", theme);
 </script>
 
 <template>
   <main class="themed" :class="theme">
     <header>
-        <nav>
-          <div class="router">
-            <RouterLink to="/">Home</RouterLink>
-            <RouterLink to="/fight">Combat</RouterLink>
-          </div>
-          <div class="theme-selector">
-            <p>Escolliu un tema:</p>
-            <input @change="switchTheme(theme)" class = "radio" type="radio" name="theme" id="light" value="light" v-model="theme">
-            <label for="light">clar</label>
-            <input @change="switchTheme(theme)" class = "radio" type="radio" name="theme" id="dark" value="dark" v-model="theme" checked>
-            <label for="dark">fosc</label>
-
-          </div>
-        </nav>
+      <nav>
+        <div class="router">
+          <RouterLink to="/">Home</RouterLink>
+          <RouterLink to="/fight">Combat</RouterLink>
+        </div>
+        <div class="theme-selector">
+          <p>Escolliu un tema:</p>
+          <input
+            @change="saveTheme(theme)"
+            class="radio"
+            type="radio"
+            name="theme"
+            id="light"
+            value="light"
+            v-model="theme"
+          />
+          <label for="light">clar</label>
+          <input
+            @change="saveTheme(theme)"
+            class="radio"
+            type="radio"
+            name="theme"
+            id="dark"
+            value="dark"
+            v-model="theme"
+            checked
+          />
+          <label for="dark">fosc</label>
+        </div>
+      </nav>
       <img alt="Vue logo" class="logo" src="@/assets/pokedex.png" />
     </header>
 
@@ -62,9 +55,7 @@ onMounted(() => {
   </main>
 </template>
 
-
 <style scoped>
-
 :root {
   --beige: beige;
   --strong-beige: rgb(218, 218, 158);
@@ -83,8 +74,8 @@ onMounted(() => {
   --text-color: var(--darkgrey);
   --card-bg-color: var(--strong-beige);
   --background-nav: var(--strong-beige);
-  --vora-text: 2px 0 #fff, -2px 0 #fff, 0 2px #fff, 0 -2px #fff,
-      1px 1px #fff, -1px -1px #fff, 1px -1px #fff, -1px 1px #fff;
+  --vora-text: 2px 0 #fff, -2px 0 #fff, 0 2px #fff, 0 -2px #fff, 1px 1px #fff,
+    -1px -1px #fff, 1px -1px #fff, -1px 1px #fff;
   --invert-percent: 0;
 }
 
@@ -93,8 +84,8 @@ onMounted(() => {
   --text-color: var(--yellow);
   --card-bg-color: var(--lightgrey);
   --background-nav: var(--lightgrey);
-  --vora-text: 2px 0 #000, -2px 0 #000, 0 2px #000, 0 -2px #000,
-      1px 1px #000, -1px -1px #000, 1px -1px #000, -1px 1px #000;
+  --vora-text: 2px 0 #000, -2px 0 #000, 0 2px #000, 0 -2px #000, 1px 1px #000,
+    -1px -1px #000, 1px -1px #000, -1px 1px #000;
   --invert-percent: 1;
 }
 
@@ -107,7 +98,7 @@ header {
 
 .logo {
   display: block;
-  margin: .5rem auto ;
+  margin: 0.5rem auto;
 }
 
 nav {
@@ -121,14 +112,6 @@ nav {
   margin-top: 2rem;
 }
 
-nav a.router-link-exact-active {
-  color: var(--text-color);
-}
-
-nav a.router-link-exact-active:hover {
-  background-color: transparent;
-}
-
 nav a {
   display: inline-block;
   padding: 0 1rem;
@@ -140,11 +123,20 @@ nav a:first-of-type {
   border: 0;
 }
 
-.radio{
-  margin-left: 1rem;
-  margin-right: .25rem;
+nav a.router-link-exact-active {
+  color: var(--text-color);
+  font-weight: bold;
 }
-.theme-selector{
+
+nav a:hover {
+  background-color: var(--bg-color);
+}
+
+.radio {
+  margin-left: 1rem;
+  margin-right: 0.25rem;
+}
+.theme-selector {
   display: flex;
   justify-content: space-around;
   padding-right: 1rem;
@@ -155,13 +147,6 @@ nav a:first-of-type {
     display: flex;
     place-items: center;
     padding-right: calc(var(--section-gap) / 2);
-  }
-
-  nav {
-    text-align: left;
-    margin-left: -1rem;
-    padding: 1rem 0;
-    margin-top: 1rem;
   }
 }
 
