@@ -13,6 +13,9 @@ const theme =
 
 // Store theme in local storage when it changes
 const saveTheme = (theme) => setLocalStorage("customTheme", theme);
+
+onMounted(() => document.getElementById(theme.value).checked = true)
+
 </script>
 
 <template>
@@ -43,7 +46,6 @@ const saveTheme = (theme) => setLocalStorage("customTheme", theme);
             id="dark"
             value="dark"
             v-model="theme"
-            checked
           />
           <label for="dark">fosc</label>
         </div>

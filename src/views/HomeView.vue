@@ -6,7 +6,6 @@
 
   const searchedText = ref("")            // text to be searched to filter cards
   const arrayPokemons = ref([])           // Array with result of pokemon Objects
-  // const foundPokemons = ref([])
   const CARDS = 10                        // Number of card to be displayed on the grid
   const preservePokemons = false          // Boolean to keep previous set of Pokemons 
 
@@ -24,7 +23,8 @@ const foundPokemons = computed(
 
 onMounted(async() => {
   const preservePokemons = localStorage.getItem("lockPokemons")
-  if (preservePokemons){
+  console.log(preservePokemons)
+  if (preservePokemons == "true"){
     // Coming back from detailed card view --> keep previous set of pokemons
     arrayPokemons.value = getLocalStorage("arrayPokemons")
   } else{
