@@ -50,11 +50,12 @@ const getLocalStorage = (varname) => {
 
 // Destructure pokemon object
 const destructurePokemon = (e) => {
+    const noImage = 'no-image.png'
     let pokemonObj = {
         id: e.data.id,
-        name: e.data.name.indexOf('-') == -1 ? e.data.name : e.data.name.substring(0, e.data.name.indexOf('-')),
-        img: e.data.sprites.front_default	? e.data.sprites.front_default : 'assets/logos/no-image.png',
-        img_back: e.data.sprites.back_default ? e.data.sprites.back_default : 'assets/logos/no-image.png',
+        name: e.data.name.indexOf('-') == -1 ? setToUpperCase(e.data.name) : setToUpperCase(e.data.name.substring(0, e.data.name.indexOf('-'))),
+        img: e.data.sprites.front_default ? e.data.sprites.front_default : noImage,
+        img_back: e.data.sprites.back_default ? e.data.sprites.back_default : noImage,
         attack: e.data.stats[1].base_stat,
         defense: e.data.stats[2].base_stat,
         types: e.data.types
