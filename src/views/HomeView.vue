@@ -23,7 +23,6 @@ const foundPokemons = computed(
 
 onMounted(async() => {
   const preservePokemons = localStorage.getItem("lockPokemons")
-  console.log(preservePokemons)
   if (preservePokemons == "true"){
     // Coming back from detailed card view --> keep previous set of pokemons
     arrayPokemons.value = getLocalStorage("arrayPokemons")
