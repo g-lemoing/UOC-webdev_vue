@@ -76,7 +76,7 @@ const saveTheme = (theme) => setLocalStorage("customTheme", theme);
   --background-nav: var(--strong-beige);
   --vora-text: 2px 0 #fff, -2px 0 #fff, 0 2px #fff, 0 -2px #fff, 1px 1px #fff,
     -1px -1px #fff, 1px -1px #fff, -1px 1px #fff;
-  --invert-percent: 0;
+  --invert-percent: 0.1;
 }
 
 .themed.dark {
@@ -86,7 +86,7 @@ const saveTheme = (theme) => setLocalStorage("customTheme", theme);
   --background-nav: var(--lightgrey);
   --vora-text: 2px 0 #000, -2px 0 #000, 0 2px #000, 0 -2px #000, 1px 1px #000,
     -1px -1px #000, 1px -1px #000, -1px 1px #000;
-  --invert-percent: 1;
+  --invert-percent: .9;
 }
 
 header {

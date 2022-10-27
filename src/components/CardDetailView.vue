@@ -102,8 +102,8 @@ localStorage.setItem("lockPokemons", true);
   justify-content: center;
   align-items: center;
   width: 100%;
-  padding: 0.5rem 0rem 0.5rem 0rem;
-  gap: 10%;
+  padding: 0.5rem 0.25rem 0.5rem 0.25rem;
+  gap: 5%;
 }
 
 .card-footer {
@@ -114,6 +114,7 @@ localStorage.setItem("lockPokemons", true);
 }
 
 .card-footer > a {
+  font-family: inherit;
   display: inline-block;
   text-decoration: none;
   font-size: 2rem;
@@ -136,16 +137,9 @@ localStorage.setItem("lockPokemons", true);
 .icon {
   width: 48px;
   height: 48px;
-  filter: invert(var(--filter-percent))
+  filter: invert(var(--invert-percent))
 }
 
-/* .icon.light {
-  filter: invert(0%);
-}
-
-.icon.dark {
-  filter: invert(100%);
-} */
 .types-container > p {
   font-size: 1.5rem;
 }
