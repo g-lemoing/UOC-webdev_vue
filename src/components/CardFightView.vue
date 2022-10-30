@@ -1,6 +1,6 @@
 <script setup>
-import { onMounted } from "vue";
-import { ref } from "vue";
+import { onMounted } from "vue";  // no se está utilizando
+import { ref } from "vue"; 
 
 defineProps({
   id: {
@@ -15,10 +15,12 @@ defineProps({
     type: String,
     required: true,
   },
+  // esta variable no se está utilizando
   imgBack: {
     type: String,
     required: true,
   },
+  ////
   attack: {
     type: Number,
     required: true,
@@ -27,24 +29,39 @@ defineProps({
     type: Number,
     required: true,
   },
+  // esta variable no se está utilizando
   types: {
     type: Array,
     required: true,
   },
+  ////
 });
 
-function addIsFlipped(pokeId) {
-  let card = document.getElementById(pokeId);
-  card.classList.add("is-flipped");
-}
+// Es mala práctica  acceder directamente al DOM, para añadir una clase condicional se utiiliza los class condition.
+// function addIsFlipped(pokeId) {
+//   let card = document.getElementById(pokeId);
+//   card.classList.add("is-flipped");
+// }
+// 1.- creamos un estado para las cartas flipped en false.
+  const flipped = ref(false);
+// 2.- en la linea 60 cuando se haga click cambiamos el estado a true.
+// 3.- en la linea 55 creamo la class condition, Si flipped es true agrega la clase is-flipped a la Card.
+
+
+
+// feedback.- Deberías controlar que solo se den vuelta (flipped) los pokemones que entran en lucha.
 </script>
 
 <template>
   <div class="scene scene--card">
-    <div class="card" :id="id">
+    <div 
+      class="card" 
+      :class="{ 'is-flipped' : flipped}"
+      :id="id" 
+    >
       <div
         class="card__face card__face--front"
-        @click="addIsFlipped(this.id)"
+        @click="flipped = true"
       ></div>
       <div class="card__face card__face--back">
         <div class="img-container">
