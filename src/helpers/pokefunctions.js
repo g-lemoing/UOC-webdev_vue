@@ -50,7 +50,7 @@ const getLocalStorage = (varname) => {
 
 // Destructure pokemon object
 const destructurePokemon = (e) => {
-    const noImage = 'no-image.png'
+    const noImage = '@/assets/logos/no-image.png'
     let pokemonObj = {
         id: e.data.id,
         name: e.data.name.indexOf('-') == -1 ? setToUpperCase(e.data.name) : setToUpperCase(e.data.name.substring(0, e.data.name.indexOf('-'))),
