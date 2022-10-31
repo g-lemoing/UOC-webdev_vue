@@ -40,10 +40,10 @@ function addToFight(pokemon) {
 <template>
   <section>
     <div class="cards-grid">
-      <template v-for="pokemon in pokemons">
+      <!-- Solo se necesita el key en el padre que hace el bucle -->
+      <template v-for="pokemon in pokemons" :key="pokemon.id">
         <CardView
           v-if="!fight"
-          :key="pokemon.id"
           :id="pokemon.id"
           :name="pokemon.name"
           :img="pokemon.img"
@@ -54,7 +54,6 @@ function addToFight(pokemon) {
         />
         <CardFightView
           v-else
-          :key="pokemon.id"
           :id="pokemon.id"
           :name="pokemon.name"
           :img="pokemon.img"
